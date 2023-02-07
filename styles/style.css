@@ -1,0 +1,22 @@
+.bg{
+    background: rgba(0, 0, 0, .85);
+}
+
+.logo{
+    color: #8e8e8e;
+}
+
+.logo:hover{
+    color: white;
+}
+
+.link a{
+    color: #8e8e8e;
+    text-decoration: underline;
+    transition: all .3s;
+}
+
+.link a:hover{
+    color: white;
+    text-decoration: none;
+}
