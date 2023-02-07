@@ -20,3 +20,30 @@
     color: white;
     text-decoration: none;
 }
+
+.products{
+    margin: 50px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.pagination{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.btn{
+    border: none;
+    padding: 15px;
+    margin-right: 20px;
+}
+
+.btn:last-child{
+    margin-right: 0;
+}
+
+
