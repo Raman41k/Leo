@@ -1,3 +1,8 @@
+div{
+    padding: 0;
+    margin: 0;
+}
+
 .bg{
     background: rgba(0, 0, 0, .85);
 }
@@ -44,6 +49,20 @@
 
 .btn:last-child{
     margin-right: 0;
+}
+
+.carousel{
+    margin-top: 20px;
+    padding: 0 !important;
+}
+
+.carousel .carousel-item{
+    display: flex;
+    max-height: 700px;
+}
+
+.carousel .carousel-item img{
+    object-fit: cover;
 }
 
 
