@@ -3,67 +3,83 @@ const products_list = [
         "id": 1,
         "logo": "https://cdn.albero.com.ua/products/225472ae/b33c/11e7/8931/000c2987a3fe/100x100/3dd06-askania-grande.webp",
         "title": "Product 1",
-        "price": 500
+        "price": 500,
+        "description": "Some random text for description"
     },
     {
         "id": 2,
         "logo": "https://cdn.albero.com.ua/products/225472ae/b33c/11e7/8931/000c2987a3fe/100x100/3dd06-askania-grande.webp",
         "title": "Product 2",
-        "price": 600
+        "price": 600,
+        "description": "Some random text for description"
     },
     {
         "id": 3,
         "logo": "https://cdn.albero.com.ua/products/225472ae/b33c/11e7/8931/000c2987a3fe/100x100/3dd06-askania-grande.webp",
         "title": "Product 3",
-        "price": 750
+        "price": 750,
+        "description": "Some random text for description"
     }, {
         "id": 4,
         "logo": "https://cdn.albero.com.ua/products/225472ae/b33c/11e7/8931/000c2987a3fe/100x100/3dd06-askania-grande.webp",
         "title": "Product 4",
-        "price": 300
+        "price": 300,
+        "description": "Some random text for description"
     }, {
         "id": 5,
         "logo": "https://cdn.albero.com.ua/products/225472ae/b33c/11e7/8931/000c2987a3fe/100x100/3dd06-askania-grande.webp",
         "title": "Product 5",
-        "price": 800
+        "price": 800,
+        "description": "Some random text for description"
     },
     {
         "id": 6,
         "logo": "https://cdn.albero.com.ua/products/225472ae/b33c/11e7/8931/000c2987a3fe/100x100/3dd06-askania-grande.webp",
         "title": "Product 6",
-        "price": 1200
+        "price": 1200,
+        "description": "Some random text for description"
     },
     {
         "id": 7,
         "logo": "https://cdn.albero.com.ua/products/225472ae/b33c/11e7/8931/000c2987a3fe/100x100/3dd06-askania-grande.webp",
         "title": "Product 7",
-        "price": 1500
+        "price": 1500,
+        "description": "Some random text for description"
     },
     {
         "id": 8,
         "logo": "https://cdn.albero.com.ua/products/225472ae/b33c/11e7/8931/000c2987a3fe/100x100/3dd06-askania-grande.webp",
         "title": "Product 8",
-        "price": 900
+        "price": 900,
+        "description": "Some random text for description"
     },
     {
         "id": 9,
         "logo": "https://cdn.albero.com.ua/products/225472ae/b33c/11e7/8931/000c2987a3fe/100x100/3dd06-askania-grande.webp",
         "title": "Product 9",
-        "price": 100
+        "price": 100,
+        "description": "Some random text for description"
     },
     {
         "id": 10,
         "logo": "https://cdn.albero.com.ua/products/225472ae/b33c/11e7/8931/000c2987a3fe/100x100/3dd06-askania-grande.webp",
         "title": "Product 10",
-        "price": 300
+        "price": 300,
+        "description": "Some random text for description"
+    },  {
+        "id": 10,
+        "logo": "https://cdn.albero.com.ua/products/225472ae/b33c/11e7/8931/000c2987a3fe/100x100/3dd06-askania-grande.webp",
+        "title": "Product 10",
+        "price": 300,
+        "description": "Some random text for description"
     }
 ];
 
-const product = document.querySelector('.products');
+const product = document.querySelector('.row');
 const pagination = document.querySelector('.pagination');
 
 let current_page = 2;
-let items = 4;
+let items = 3;
 
 function displayEl(items, wrapper, items_per_page, page) {
     wrapper.innerHTML = "";
@@ -76,18 +92,34 @@ function displayEl(items, wrapper, items_per_page, page) {
     for (let i = 0; i < paginatedItems.length; i++) {
         let item = paginatedItems[i];
 
-        const div = document.createElement('div');
+        const col = document.createElement('div');
+        col.classList.add('col-4', 'card-item')
         const img = document.createElement('img');
         const h3 = document.createElement('h3');
         const p = document.createElement('p');
+        const button = document.createElement('button');
+        button.classList.add('btn', 'btn-outline-success')
+        button.setAttribute("data-bs-toggle","modal")
+        button.setAttribute("data-bs-target","#exampleModal")
 
-        p.innerHTML = item.price;
+        button.onclick = () => {
+            const img = document.querySelector('.card-img-top');
+            const title = document.querySelector('.card-title');
+            const text = document.querySelector('.card-text');
+
+            title.innerHTML = item.title;
+            text.innerHTML = item.description;
+            img.src = item.logo;
+        }
+
+        button.innerText = 'Buy';
+        p.innerHTML = item.price + '$';
         img.src = item.logo;
         img.alt = item.title;
         h3.innerHTML = item.title;
-        div.append(img, h3, p)
+        col.append(img, h3, p, button);
 
-        wrapper.appendChild(div);
+        wrapper.appendChild(col);
     }
 }
 
@@ -125,8 +157,6 @@ function paginationBtn(page, item) {
 
 displayEl(products_list, product, items, current_page);
 setupPagination(products_list, pagination, items)
-
-
 
 
 
