@@ -78,7 +78,7 @@ const products_list = [
 const product = document.querySelector('.row');
 const pagination = document.querySelector('.pagination');
 
-let current_page = 2;
+let current_page = 1;
 let items = 3;
 
 function displayEl(items, wrapper, items_per_page, page) {
